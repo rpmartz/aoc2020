@@ -21,8 +21,8 @@ def build_row(inclusive_start: int, exclusive_end: int) -> List[int]:
     return [x for x in range(inclusive_start, exclusive_end)]
 
 
-def find_row_number(rows, instructions):
-    res = rows
+def find_result(num_range, instructions):
+    res = num_range
     for instruction in instructions:
         res = binary_search(res, instruction)
 

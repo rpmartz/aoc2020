@@ -1,6 +1,6 @@
 import unittest
 
-from src.day_05 import build_row, binary_search, find_row_number
+from src.day_05 import build_row, binary_search, find_result
 
 
 class DayFiveTests(unittest.TestCase):
@@ -50,9 +50,18 @@ class DayFiveTests(unittest.TestCase):
         rows = build_row(0, 128)
         instructions = 'FBFBBFF'
         expected = 44
-        actual = find_row_number(rows, instructions)
+        actual = find_result(rows, instructions)
 
         self.assertEqual(expected, actual)
+
+    def test_find_column_number(self):
+        cols = build_row(0, 8)
+        instructions = 'RLR'
+        expected = 5
+        actual = find_result(cols, instructions)
+
+        self.assertEqual(expected, actual)
+
 
 if __name__ == '__main__':
     unittest.main()
