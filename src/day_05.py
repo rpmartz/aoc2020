@@ -59,3 +59,13 @@ for line in lines:
     highest_score = max(highest_score, current_line_score)
 
 print('Max seat ID: %s' % highest_score)
+
+all_scores = sorted([process_boarding_pass(line) for line in lines])
+
+prev = all_scores[0]
+for seat_id in all_scores[1:]:
+    if prev + 1 != seat_id:
+        print('Missing seat ID is %d' % (seat_id - 1))
+        break
+
+    prev = seat_id
