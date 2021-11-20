@@ -1,6 +1,6 @@
 import unittest
 
-from src.day_05 import build_row, binary_search, find_result
+from src.day_05 import build_row, binary_search, find_result, process_boarding_pass
 
 
 class DayFiveTests(unittest.TestCase):
@@ -61,6 +61,11 @@ class DayFiveTests(unittest.TestCase):
         actual = find_result(cols, instructions)
 
         self.assertEqual(expected, actual)
+
+    def test_boarding_pass(self):
+        self.assertEqual(567, process_boarding_pass('BFFFBBFRRR'))
+        self.assertEqual(119, process_boarding_pass('FFFBBBFRRR'))
+        self.assertEqual(820, process_boarding_pass('BBFFBBFRLL'))
 
 
 if __name__ == '__main__':
