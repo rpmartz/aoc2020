@@ -1,7 +1,7 @@
 from typing import List
 
 
-def halve_range(range, designator):
+def halve_row_range(range, designator):
     if designator not in ('F', 'B'):
         raise Exception('Designator needs to be `F` or `B`')
 
@@ -11,6 +11,17 @@ def halve_range(range, designator):
         return range[0:midpoint]
     else:
         return range[midpoint:]
+
+
+def halve_column_range(cols, designator):
+    if designator not in ('L', 'R'):
+        raise Exception('Column designator needs to be `L` or `R`')
+
+    midpoint = int(len(cols) / 2)
+    if designator == 'L':
+        return cols[0:midpoint]
+    else:
+        return cols[midpoint:]
 
 
 def build_row(inclusive_start: int, exclusive_end: int) -> List[int]:
