@@ -20,6 +20,15 @@ def binary_search(range, designator):
 def build_row(inclusive_start: int, exclusive_end: int) -> List[int]:
     return [x for x in range(inclusive_start, exclusive_end)]
 
+
+def find_row_number(rows, instructions):
+    res = rows
+    for instruction in instructions:
+        res = binary_search(res, instruction)
+
+    assert len(res) == 1
+    return res[0]
+
 # with open('data/05.txt', 'r') as f:
 #     lines = [line.strip() for line in f.readlines()]
 

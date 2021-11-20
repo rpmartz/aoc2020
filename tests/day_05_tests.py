@@ -1,6 +1,6 @@
 import unittest
 
-from src.day_05 import build_row, binary_search
+from src.day_05 import build_row, binary_search, find_row_number
 
 
 class DayFiveTests(unittest.TestCase):
@@ -46,6 +46,13 @@ class DayFiveTests(unittest.TestCase):
         third_partition = binary_search(second_partition, 'R')
         self.assertEqual(third_partition, [5])
 
+    def test_find_row_number(self):
+        rows = build_row(0, 128)
+        instructions = 'FBFBBFF'
+        expected = 44
+        actual = find_row_number(rows, instructions)
+
+        self.assertEqual(expected, actual)
 
 if __name__ == '__main__':
     unittest.main()
