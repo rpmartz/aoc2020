@@ -47,9 +47,15 @@ def process_boarding_pass(boarding_pass):
 
     return seat_id
 
-# with open('data/05.txt', 'r') as f:
-#     lines = [line.strip() for line in f.readlines()]
 
-#
-# for line in lines:
-#     print(line)
+highest_score = -1000000
+
+with open('data/05.txt', 'r') as f:
+    lines = [line.strip() for line in f.readlines()]
+
+for line in lines:
+    current_line_score = process_boarding_pass(line)
+    print('[%s]: %s' % (line, current_line_score))
+    highest_score = max(highest_score, current_line_score)
+
+print('Max seat ID: %s' % highest_score)
