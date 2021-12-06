@@ -3,8 +3,9 @@ with open('data/02.txt', 'r') as f:
 
 num_valid_passwords = 0
 
-for line in lines:
+records = []
 
+for line in lines:
     components = line.split(':')
     range_and_letter = components[0].split()
 
@@ -15,8 +16,6 @@ for line in lines:
     letter = range_and_letter[1]
     password = components[1].strip()
 
-    num_occurences = password.count(letter)
-    if lower_bound <= num_occurences <= upper_bound:
-        num_valid_passwords += 1
+    records.append((lower_bound, upper_bound, letter, password))
 
-print(num_valid_passwords)
+print(sum(lb <= password.count(letter) <= ub for lb, ub, letter, password in records))
