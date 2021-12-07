@@ -19,3 +19,5 @@ for line in lines:
     records.append((lower_bound, upper_bound, letter, password))
 
 print(sum(lb <= password.count(letter) <= ub for lb, ub, letter, password in records))
+print(sum(((password[a - 1] == letter) + (password[b - 1] == letter)) == 1
+          for a, b, letter, password in records))
